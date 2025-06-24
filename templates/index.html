@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>YOLOv8 Living Being Detector</title>
+</head>
+<body>
+    <h2>Upload an Image</h2>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="image">
+        <button type="submit">Detect</button>
+    </form>
+
+    {% if result %}
+        <h3>Detection Result:</h3>
+        <ul>
+        {% for key, value in result.items() %}
+            <li>{{ key }}: {{ value }}</li>
+        {% endfor %}
+        </ul>
+        <h3>Annotated Image:</h3>
+        <img src="{{ image_url }}" width="500">
+    {% endif %}
+</body>
+</html>
